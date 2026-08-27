@@ -69,3 +69,13 @@ def recent_posts(post):
     posts = Post.objects.exclude(pk=post.pk)[:5]
     return {"title": "Recent Posts", "posts": posts}
     logger.debug("Loaded %d recent posts for post %d", len(posts), post.pk)
+
+
+@register.simple_tag
+def col(extra_classes=""):
+    return format_html('<div class="{}">', extra_classes)
+
+
+@register.simple_tag
+def endcol():
+    return format_html("</div>")
