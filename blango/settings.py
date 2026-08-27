@@ -24,7 +24,11 @@ AUTH_USER_MODEL = "blango_auth.User"
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 ACCOUNT_ACTIVATION_DAYS = 7
+
+SITE_ID = 1
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-+sn%dpa!086+g+%44z9*^j^q-u4n!j(#wl)x9a%_1op@zz2+1-'
@@ -41,6 +45,11 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SAMESITE = 'None'
 SESSION_COOKIE_SAMESITE = 'None'
 
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+
 
 # Application nition
 
@@ -50,11 +59,16 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
     'django.contrib.staticfiles',
     'blango_auth',
     'blog',
     'crispy_forms',
     'crispy_bootstrap5',
+    'allauth',
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.google"
 ]
 
 LOGGING = {
