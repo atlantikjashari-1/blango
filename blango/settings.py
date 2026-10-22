@@ -53,6 +53,14 @@ ACCOUNT_AUTHENTICATION_METHOD = "email"
 
 # Application nition
 
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.BasicAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.TokenAuthentication",
+    ]
+}
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -68,7 +76,8 @@ INSTALLED_APPS = [
     'allauth',
     "allauth.account",
     "allauth.socialaccount",
-    "allauth.socialaccount.providers.google"
+    "allauth.socialaccount.providers.google",
+    "rest_framework.authtoken",
 ]
 
 LOGGING = {
