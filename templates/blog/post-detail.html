@@ -11,6 +11,14 @@
     </div>
 </div>
 
+{% if post.hero_image %}
+    {% row %}
+        {% col %}
+            <img class="img-fluid" src="{{ post.hero_image.url }}">
+        {% endcol %}
+    {% endrow %}
+{% endif %}
+
 <div class="row">
     <div class="col">
         {{ post.content|safe }}

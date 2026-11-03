@@ -29,6 +29,10 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 ACCOUNT_ACTIVATION_DAYS = 7
 
+MEDIA_ROOT = BASE_DIR / "media"
+
+MEDIA_URL = "/media/"
+
 SITE_ID = 1
 
 # SECURITY WARNING: keep the secret key used in production secret!
