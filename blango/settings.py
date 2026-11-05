@@ -27,7 +27,7 @@ class Dev(Configuration):
 
     AUTH_USER_MODEL = "blango_auth.User"
 
-    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
@@ -257,6 +257,8 @@ class Dev(Configuration):
     USE_L10N = True
 
     USE_TZ = True
+
+    ADMINS = [("Ben", "ben@example.com")]
 
 
     # Static files (CSS, JavaScript, Images)
