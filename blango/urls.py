@@ -8,6 +8,7 @@ import blango_auth.views
 from blango_auth.forms import BlangoRegistrationForm
 from django_registration.backends.activation.views import RegistrationView
 import gh.views
+import movies.views
 
 
 urlpatterns = [
@@ -25,7 +26,12 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     path("api/v1/", include("blog.api.urls")),
     path("post-table/", blog.views.post_table, name="blog-post-table"),
-    path("", gh.views.index)
+    path("", gh.views.index),
+    path("search/", movies.views.search, name="search"),
+    path(
+        "search-wait/<uuid:result_uuid>/", movies.views.search_wait, name="search_wait"
+    ),
+    path("search-results/", movies.views.search_results, name="search_results")
 ]
 
 if settings.DEBUG:

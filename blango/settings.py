@@ -41,6 +41,9 @@ class Dev(Configuration):
 
     OMDB_KEY = "f5200997"
 
+    CELERY_RESULT_BACKEND = "django-db"
+    CELERY_BROKER_URL = "redis://localhost:6379/0"
+
     # SECURITY WARNING: keep the secret key used in production secret!
     SECRET_KEY = 'django-insecure-+sn%dpa!086+g+%44z9*^j^q-u4n!j(#wl)x9a%_1op@zz2+1-'
 
@@ -126,6 +129,7 @@ class Dev(Configuration):
         "rest_framework.authtoken",
         'movies',
         'gh',
+        'django_celery_results',
     ]
 
     LOGGING = {
