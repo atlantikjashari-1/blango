@@ -125,6 +125,7 @@ class Dev(Configuration):
         "allauth.socialaccount.providers.google",
         "rest_framework.authtoken",
         'movies',
+        'gh',
     ]
 
     LOGGING = {
